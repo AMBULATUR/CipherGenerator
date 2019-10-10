@@ -1,0 +1,12 @@
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\bin\Debug\CipherGenerator.exe.config
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\bin\Debug\CipherGenerator.exe
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\bin\Debug\CipherGenerator.pdb
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.csprojAssemblyReference.cache
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.ColumnCipher.resources
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.MainForm.resources
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.Properties.Resources.resources
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.csproj.GenerateResource.cache
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.csproj.CoreCompileInputs.cache
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.exe
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.pdb
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.VizhenerCipher.resources
