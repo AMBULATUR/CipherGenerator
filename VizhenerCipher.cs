@@ -32,9 +32,10 @@ namespace CipherGenerator
                 while (!sr.EndOfStream)
                 {
                     s = sr.ReadLine();
-                    sw.WriteLine(new Vizhener().Encode(s, textBoxKeyWord.Text));
+                    string cipherout = new Vizhener().Encode(s, textBoxKeyWord.Text);
+                    sw.WriteLine(cipherout);
+                    textBox1.Text = cipherout;
                 }
-
                 sr.Close();
                 sw.Close();
             }
@@ -61,7 +62,9 @@ namespace CipherGenerator
                 while (!sr.EndOfStream)
                 {
                     s = sr.ReadLine();
-                    sw.WriteLine(new Vizhener().Decode(s, textBoxKeyWord.Text));
+                    string cipherout = new Vizhener().Decode(s, textBoxKeyWord.Text);
+                    sw.WriteLine(cipherout);
+                    textBox1.Text = cipherout;
                 }
 
                 sr.Close();

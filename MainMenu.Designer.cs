@@ -42,7 +42,7 @@
             // 
             this.groupBox1.Controls.Add(this.RotatingGrillButton);
             this.groupBox1.Controls.Add(this.ColumnButton);
-            this.groupBox1.Location = new System.Drawing.Point(38, 136);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(354, 175);
             this.groupBox1.TabIndex = 0;
@@ -81,7 +81,7 @@
             // SubstitutionGroupBox
             // 
             this.SubstitutionGroupBox.Controls.Add(this.VizhnerButton);
-            this.SubstitutionGroupBox.Location = new System.Drawing.Point(409, 136);
+            this.SubstitutionGroupBox.Location = new System.Drawing.Point(383, 12);
             this.SubstitutionGroupBox.Name = "SubstitutionGroupBox";
             this.SubstitutionGroupBox.Size = new System.Drawing.Size(354, 175);
             this.SubstitutionGroupBox.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(753, 201);
             this.Controls.Add(this.SubstitutionGroupBox);
             this.Controls.Add(this.groupBox1);
             this.Name = "MainForm";
