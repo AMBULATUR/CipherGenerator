@@ -26,5 +26,10 @@ namespace CipherGenerator
         {
             new VizhenerCipher().Show();
         }
+
+        private void RotatingGrillButton_Click(object sender, EventArgs e)
+        {
+            new RotateCipher().Show();
+        }
     }
 }

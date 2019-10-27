@@ -10,3 +10,4 @@ C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\C
 C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.exe
 C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.pdb
 C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.VizhenerCipher.resources
+C:\Users\Wrong\Documents\Visual Studio 2017\Projects\CipherGenerator\obj\Debug\CipherGenerator.RotateCipher.resources

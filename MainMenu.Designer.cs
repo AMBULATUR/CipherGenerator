@@ -57,6 +57,7 @@
             this.RotatingGrillButton.TabIndex = 1;
             this.RotatingGrillButton.Text = "Метод поворачивающейся решетки";
             this.RotatingGrillButton.UseVisualStyleBackColor = true;
+            this.RotatingGrillButton.Click += new System.EventHandler(this.RotatingGrillButton_Click);
             // 
             // ColumnButton
             // 
