@@ -92,7 +92,7 @@ namespace CipherGenerator
             return array;
         }
 
-        private void Cipher(string Message, string Key)
+        private void Encode(string Message, string Key)
         {
             /*
               key = text;
@@ -103,7 +103,12 @@ namespace CipherGenerator
             v   [h]  [e]  [l]  [l]
             
              */
-
+            var temp = "";
+            foreach (var character in Key)
+            {
+                if (!char.IsDigit(character))
+                    temp += character;
+            }
 
             int messageLength = Message.Length;
             int keyLength = Key.Length;
@@ -214,10 +219,10 @@ namespace CipherGenerator
             else if (Regex.IsMatch(KeyBox.Text, @"\p{IsCyrillic}"))
                 MessageBox.Show("В ключе присутствует кириллица");
             else
-                Cipher(SourceBox.Text, KeyBox.Text);
+                Encode(SourceBox.Text, KeyBox.Text);
         }
 
-        private void Encode(string Message, string Key)
+        private void Decode(string Message, string Key)
         {
             int messageLength = Message.Length;
             int keyLength = Key.Length;
@@ -309,7 +314,7 @@ namespace CipherGenerator
             else if (Regex.IsMatch(CipherKeyBox.Text, @"\p{IsCyrillic}"))
                 MessageBox.Show("В ключе присутствует кириллица");
             else
-                Encode(CipherBox.Text, CipherKeyBox.Text);
+                Decode(CipherBox.Text, CipherKeyBox.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -325,7 +330,7 @@ namespace CipherGenerator
                         if(Regex.IsMatch(Convert.ToString(symbol), @"[A-Za-z]"))
                         SourceBox.Text += symbol;
                     }
-                    SourceBox.Text += " ";
+                   // SourceBox.Text += " ";
                 }
                 //SourceBox.Text;
             }

@@ -233,7 +233,7 @@ namespace CipherGenerator
                 if(item!=" ")
                 DeCryptResultBox.Text += item;
             }
-            DisplayIntoDataGrid(Matrix, KeyDataGrid);
+            //DisplayIntoDataGrid(Matrix, KeyDataGrid);
             try
             {
                 File.Delete("Ciph2\\DeCipherText.txt");

@@ -22,6 +22,7 @@ namespace CipherGenerator
 
         private void button1_Click(object sender, EventArgs e)
         {
+            textBox1.Text = null;
             if (textBoxKeyWord.Text.Length > 0)
             {
                 string s;
@@ -34,7 +35,7 @@ namespace CipherGenerator
                     s = sr.ReadLine();
                     string cipherout = new Vizhener().Encode(s, textBoxKeyWord.Text);
                     sw.WriteLine(cipherout);
-                    textBox1.Text = cipherout;
+                    textBox1.Text += cipherout;
                 }
                 sr.Close();
                 sw.Close();
@@ -45,13 +46,39 @@ namespace CipherGenerator
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Vizhener obj = new Vizhener();
-            textBoxKeyWord.Text = obj.Generate_Pseudorandom_KeyWord(10, new Random().Next(10));//Second - pseudorandom
+            string s = null;
+
+            StreamReader sr = new StreamReader("Ciph3\\in.txt");
+
+
+            while (!sr.EndOfStream)
+            {
+                s += sr.ReadLine();
+            }
+            sr.Close();
+
+            var IL = s.Length;
+            var IK = textBoxKeyWord.Text.Length;
+            var nad = IL - IK;
+            for (int i = 0; i < nad; i++)
+            {
+                try
+                {
+                    textBoxKeyWord.Text += s[i];
+                }
+                catch
+                {
+                    nad = nad - i;
+                    i = 0;
+                }
+            }
+                /*obj.Generate_Pseudorandom_KeyWord(10, new Random().Next(10));//Second - pseudorandom*/
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            textBox1.Text = null;
             if (textBoxKeyWord.Text.Length > 0)
             {
                 string s;
@@ -64,7 +91,7 @@ namespace CipherGenerator
                     s = sr.ReadLine();
                     string cipherout = new Vizhener().Decode(s, textBoxKeyWord.Text);
                     sw.WriteLine(cipherout);
-                    textBox1.Text = cipherout;
+                    textBox1.Text += cipherout;
                 }
 
                 sr.Close();
@@ -87,12 +114,16 @@ namespace CipherGenerator
             input = input.ToUpper();
             keyword = keyword.ToUpper();
 
+
+            
+
             string result = "";
 
             int keyword_index = 0;
 
             foreach (char symbol in input)
             {
+                //ci = (pi+ku)modN
                 int c = (Array.IndexOf(characters, symbol) +
                     Array.IndexOf(characters, keyword[keyword_index])) % N;
 
@@ -109,9 +140,10 @@ namespace CipherGenerator
 
         public string Decode(string input, string keyword)
         {
+            //pi=(ci+N-ki)
             input = input.ToUpper();
             keyword = keyword.ToUpper();
-
+            
             string result = "";
 
             int keyword_index = 0;
