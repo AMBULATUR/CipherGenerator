@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,18 +26,27 @@ namespace CipherGenerator
             textBox1.Text = null;
             if (textBoxKeyWord.Text.Length > 0)
             {
-                string s;
+                string s = "";
 
                 StreamReader sr = new StreamReader("Ciph3\\in.txt");
                 StreamWriter sw = new StreamWriter("Ciph3\\out.txt");
 
                 while (!sr.EndOfStream)
                 {
-                    s = sr.ReadLine();
-                    string cipherout = new Vizhener().Encode(s, textBoxKeyWord.Text);
-                    sw.WriteLine(cipherout);
-                    textBox1.Text += cipherout;
+                    s += sr.ReadLine();
                 }
+                string stmp = "";
+                foreach (char symbol in s)
+                {
+
+                    if (Regex.IsMatch(Convert.ToString(symbol), @"[\u0400-\u04FF]"))
+                        stmp += symbol;
+                }
+                s = stmp;
+                string cipherout = new Vizhener().Encode(s, textBoxKeyWord.Text);
+                sw.WriteLine(cipherout);
+                textBox1.Text += cipherout;
+
                 sr.Close();
                 sw.Close();
             }
@@ -46,6 +56,15 @@ namespace CipherGenerator
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string str = "";
+            foreach (char symbol in textBoxKeyWord.Text)
+            {
+            
+                    if (Regex.IsMatch(Convert.ToString(symbol), @"[\u0400-\u04FF]"))
+                     str += symbol;
+            }
+            textBoxKeyWord.Text = str;
+
             string s = null;
 
             StreamReader sr = new StreamReader("Ciph3\\in.txt");
@@ -56,6 +75,14 @@ namespace CipherGenerator
                 s += sr.ReadLine();
             }
             sr.Close();
+            string stmp = null;
+            foreach (char symbol in s)
+            {
+
+                if (Regex.IsMatch(Convert.ToString(symbol), @"[\u0400-\u04FF]"))
+                    stmp += symbol;
+            }
+            s = stmp;
 
             var IL = s.Length;
             var IK = textBoxKeyWord.Text.Length;
@@ -105,34 +132,34 @@ namespace CipherGenerator
     {
         static char[] characters = new char[] { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
                                                 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',
-                                                'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ',
-                                                'Э', 'Ю', 'Я', ' ', '1', '2', '3', '4', '5', '6', '7',
-                                                '8', '9', '0' };
+                                                'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь',
+                                                'Э', 'Ю', 'Я'};
         int N = characters.Length;
         public string Encode(string input, string keyword)
         {
             input = input.ToUpper();
             keyword = keyword.ToUpper();
 
-
-            
-
-            string result = "";
+          
+                string result = "";
 
             int keyword_index = 0;
 
             foreach (char symbol in input)
             {
+
+                //срьоупфнтжкпжйуя
                 //ci = (pi+ku)modN
                 int c = (Array.IndexOf(characters, symbol) +
-                    Array.IndexOf(characters, keyword[keyword_index])) % N;
+                        Array.IndexOf(characters, keyword[keyword_index])) % N;
 
-                result += characters[c];
+                    result += characters[c];
 
-                keyword_index++;
+                    keyword_index++;
 
-                if ((keyword_index + 1) == keyword.Length)
-                    keyword_index = 0;
+                    if ((keyword_index + 1) == keyword.Length)
+                        keyword_index = 0;
+           
             }
 
             return result;
@@ -140,7 +167,7 @@ namespace CipherGenerator
 
         public string Decode(string input, string keyword)
         {
-            //pi=(ci+N-ki)
+            //pi=(ci+N-ki)modn
             input = input.ToUpper();
             keyword = keyword.ToUpper();
             
